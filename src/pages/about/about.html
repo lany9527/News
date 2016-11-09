@@ -1,0 +1,61 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      About
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="card-background-page">
+  <ion-card>
+    <img src="../../assets/images/aboutBg2.jpg"/>
+    <div class="card-title">
+      <ion-grid>
+        <ion-row>
+          <ion-col width-30> </ion-col>
+          <ion-col width-30>
+            <img  class="personal-img" src="../../assets/images/wolf.jpg">
+            <p class="personal-name">Kenan</p>
+          </ion-col>
+          <ion-col width-30> </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+  <ion-card>
+    <ion-grid>
+      <ion-row>
+        <ion-col width-30>
+          <button ion-button clear ion-left>
+            <ion-icon name="star" color="collectionIcon"></ion-icon>
+            <span color="mainText">收藏</span>
+          </button>
+        </ion-col>
+        <ion-col width-30>
+          <button ion-button clear ion-left>
+            <ion-icon name="moon"></ion-icon>
+            <span color="mainText">夜间</span>
+          </button>
+        </ion-col>
+        <ion-col width-30>
+          <button ion-button clear ion-left>
+            <ion-icon name="settings" color="settingIcon"></ion-icon>
+            <span color="mainText">收藏</span>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-list inset>
+      <button
+        ion-item
+        ion-left
+        *ngFor="let item of items"
+        (click)="openNavDetailsPage(item)"
+      >
+        <ion-icon item-left name="{{item.icon}}" [ngStyle]="{'color': item.color}"></ion-icon>
+        {{item.title}}
+      </button>
+    </ion-list>
+  </ion-card>
+</ion-content>
+
