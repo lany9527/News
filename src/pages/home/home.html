@@ -1,17 +1,65 @@
 <ion-header>
-  <ion-navbar>
+  <!--<ion-navbar>
     <ion-title>Home</ion-title>
-  </ion-navbar>
+  </ion-navbar>-->
+  <ion-grid>
+    <ion-row class="header">
+      <ion-col width-25 class="logoWrap">
+        <img src="../../assets/images/logo.png"/>
+      </ion-col>
+      <ion-col width-75>
+        <ion-searchbar
+          type="text"
+          animated="true"
+          placeholder="搜你想搜的"
+        ></ion-searchbar>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="item">
+      <ion-segment-button
+        *ngFor="let newsItem of newsCategory"
+        value="{{newsItem}}">
+        {{newsItem}}
+      </ion-segment-button>
+      <!--<ion-segment-button value="ducklings">
+        ducklings
+      </ion-segment-button>
+      <ion-segment-button value="kittens">
+        kittens
+      </ion-segment-button>-->
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <h2>Welcome to Ionic!</h2>
-  <p>
-    This starter project comes with simple tabs-based layout for apps
-    that are going to primarily use a Tabbed UI.
-  </p>
-  <p>
-    Take a look at the <code>src/pages/</code> directory to add or change tabs,
-    update any existing page or create new pages.
-  </p>
+  <div [ngSwitch]="item">
+    <ion-list *ngSwitchDefault>
+      <ion-item>
+        <h2>推荐</h2>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'热点'">
+      <ion-item>
+        <h2>{{item}}</h2>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'国际'">
+      <ion-item>
+        <h2>{{item}}</h2>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'数码'">
+      <ion-item>
+        <h2>{{item}}</h2>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'北京'">
+      <ion-item>
+        <h2>{{item}}</h2>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>

@@ -1,3 +1,46 @@
 page-home {
+  .header {
+    background-color: #ed4040;
+    .logoWrap {
+      display: table-cell;
+      vertical-align: middle;
+      img {
+        display: block;
+        margin-top: 3px;
+      }
+    }
+  }
+  //rest styles
+  ion-grid {
+    padding: 0;
+  }
+  .searchbar-md {
+    padding: 0;
+  }
+  .searchbar-md .searchbar-input {
+    box-shadow: none;
+    border-radius: 6px;
+    line-height: 2rem;
+    padding-right: 25px;
+  }
+  .searchbar-ios {
+    background: none;
+    padding: 0;
+  }
 
+  .segment-ios .segment-button {
+    //border-style: none;
+    border-color: #ffffff;
+  }
+  .segment-md .segment-button,
+  .segment-ios .segment-button{
+    color: #4d4d4d;
+  }
+  .segment-md .segment-button.activated, .segment-md .segment-button.segment-activated,
+  .segment-ios .segment-button.segment-activated, .active{
+    background-color: #ffffff;
+    color: #ed4040;
+    border-bottom-color: #ed4040;
+    border-bottom-width: 2px;
+  }
 }
