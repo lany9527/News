@@ -8,6 +8,7 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { VideoPage } from '../pages/video/video'
 import {NavigationDetailsPage} from "../pages/about/navigation-details";
+import {DemoPage} from "../pages/demo/demo";
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import {NavigationDetailsPage} from "../pages/about/navigation-details";
     FollowPage,
     HomePage,
     TabsPage,
-    VideoPage
+    VideoPage,
+    DemoPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -30,7 +32,8 @@ import {NavigationDetailsPage} from "../pages/about/navigation-details";
     FollowPage,
     HomePage,
     VideoPage,
-    TabsPage
+    TabsPage,
+    DemoPage
   ],
   providers: []
 })

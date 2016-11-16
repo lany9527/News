@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 
-import { NavController, AlertController } from 'ionic-angular';
+import {NavController, AlertController} from 'ionic-angular';
 
 @Component({
   selector: 'page-video',
@@ -8,8 +8,13 @@ import { NavController, AlertController } from 'ionic-angular';
 })
 export class VideoPage {
 
-  constructor(public alertCtrl: AlertController) {}
-  share(){
+  constructor(public alertCtrl: AlertController) {
+  }
+
+  /**
+   * 分享功能
+   */
+  share() {
     let alert = this.alertCtrl.create();
     alert.setTitle('分享到');
 
@@ -41,4 +46,25 @@ export class VideoPage {
     });
     alert.present();
   }
+
+  /**
+   * 弹出提醒用户登录
+   */
+  remind() {
+    let alert = this.alertCtrl.create({
+      title: `要先登录才能发表评论哦`,
+      inputs: [
+        {
+          name: 'username',
+          placeholder: 'username'
+        },
+        {
+          name: 'password',
+          placeholder: 'password'
+        }
+      ],
+      buttons: ['OK']
+    });
+    alert.present();
+  };
 }
