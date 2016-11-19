@@ -1,0 +1,34 @@
+<ion-header>
+    <ion-navbar>
+        <ion-title>Sigup</ion-title>
+    </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-list>
+        <ion-item>
+            <ion-label floating>用户名</ion-label>
+            <ion-input type="text"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label floating>密码</ion-label>
+            <ion-input type="password"></ion-input>
+        </ion-item>
+    </ion-list>
+    <ion-list radio-group>
+        <ion-list-header>
+            性别
+        </ion-list-header>
+        <ion-item>
+            <ion-label>男</ion-label>
+            <ion-radio checked="true" value="man"></ion-radio>
+        </ion-item>
+        <ion-item>
+            <ion-label>女</ion-label>
+            <ion-radio value="woman"></ion-radio>
+        </ion-item>
+    </ion-list>
+    <div padding>
+        <button ion-button color="primary" block>注册</button>
+    </div>
+</ion-content>

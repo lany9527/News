@@ -1,4 +1,5 @@
 ///<reference path="../pages/about/navigation-details.ts"/>
+///<reference path="../pages/about/signup.ts"/>
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -8,7 +9,8 @@ import { HomePage } from '../pages/home/home';
 import { TabsPage } from '../pages/tabs/tabs';
 import { VideoPage } from '../pages/video/video'
 import {NavigationDetailsPage} from "../pages/about/navigation-details";
-import {DemoPage} from "../pages/demo/demo";
+import {SigninPage} from "../pages/about/signin";
+import {SignupPage} from "../pages/about/signup";
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import {DemoPage} from "../pages/demo/demo";
     HomePage,
     TabsPage,
     VideoPage,
-    DemoPage
+    SigninPage,
+    SignupPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -33,7 +36,8 @@ import {DemoPage} from "../pages/demo/demo";
     HomePage,
     VideoPage,
     TabsPage,
-    DemoPage
+    SigninPage,
+    SignupPage
   ],
   providers: []
 })

@@ -9,6 +9,7 @@ import {NavigationDetailsPage} from "./navigation-details";
 })
 export class AboutPage {
   items: Array<any> = [];
+  logined: boolean = false;
   constructor(public nav: NavController) {
     this.items = [
       {
