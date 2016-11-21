@@ -1,7 +1,9 @@
 import { Component } from '@angular/core';
 
-import { NavController } from 'ionic-angular';
-import {NavigationDetailsPage} from "./navigation-details";
+import { NavController, ModalController } from 'ionic-angular';
+import { NavigationDetailsPage } from "./navigation-details";
+import { SigninPage } from "./signin";
+import { ProfilePage } from "./profile";
 
 @Component({
   selector: 'page-about',
@@ -9,8 +11,24 @@ import {NavigationDetailsPage} from "./navigation-details";
 })
 export class AboutPage {
   items: Array<any> = [];
-  logined: boolean = false;
-  constructor(public nav: NavController) {
+  // logined: boolean = false;
+  user: any = {};
+  constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
+    this.user.username = "";
+    this.user.password = "";
+    this.user.headface = "../../assets/images/1.jpg";
+    // let localStorage:any = {};
+    if (localStorage["logined"] === "true") {
+      this.user.headface = "../../assets/images/" + localStorage["username"] + ".jpg";
+    } else {
+      let modal = modalCtrl.create(SigninPage);
+      modal.onDidDismiss(data=>{
+        console.log(data);
+        this.user.headface = "../../assets/images/" + data + ".jpg";
+      });
+      modal.present();
+    }
+
     this.items = [
       {
         'title': '消息通知',
@@ -62,7 +80,11 @@ export class AboutPage {
       }
     ];
   }
-  openNavDetailsPage(item){
-    this.nav.push(NavigationDetailsPage, { item: item});
+  openNavDetailsPage(item) {
+    this.navCtrl.push(NavigationDetailsPage, { item: item });
   }
+
+  openProfilePage() {
+		this.navCtrl.push(ProfilePage, {user:this.user});
+	}
 }

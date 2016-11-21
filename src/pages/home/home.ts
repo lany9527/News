@@ -1,29 +1,38 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { NavController, ModalController } from 'ionic-angular';
+import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import {PeopleService} from '../../providers/people-service/people-service';
+import {TopicDetailPage} from "../topic-detail/topic-detail";
 
-import {Platform} from 'ionic-angular';
 
 @Component({
   selector: 'page-home',
-  templateUrl: 'home.html'
+  templateUrl: 'home.html',
+  providers: [PeopleService]
 })
+
 export class HomePage {
-  pet: string = 'puppies';
-  isAndroid: boolean = false;
-  isActive: boolean = false;
-  newsCategory: string[] = ['推荐', '热点', '国际', '数码', '北京','科技', '图片', '社会'];
-  i: any;
-  constructor(platform: Platform) {
-    this.isAndroid = platform.is('android');
-    // this.newsCategory = newsCategory;
-  }
-  active(){
-    for(this.i of this.newsCategory){
-      console.log(this.i)
-    }
+  public people: any;
+  currentDate: any;
+  constructor(public navCtrl: NavController, public http: Http, public peopleService: PeopleService) {
+    this.currentDate = new Date();
   }
 
-  ngOnInit(){
-    this.active();
+loadPeople(){
+  this.peopleService.load().then(data=>{
+    this.people = data;
+    console.log(this.people);
+  });
+}
+//打开详情页
+openTopicDetail(person) {
+		this.navCtrl.push(TopicDetailPage, {person:person});
+	}
+
+  ngOnInit() {
+    this.loadPeople();
+    console.log("初始化");
   }
 
 }
+
