@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import { ModalController, NavController, AlertController, LoadingController, ToastController, ViewController } from 'ionic-angular';
 
-import {Http} from '@angular/http';
-
 import { SignupPage } from "./signup";
 // import { AboutPage } from './about';
 @Component({

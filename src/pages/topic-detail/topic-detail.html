@@ -1,18 +1,69 @@
-<!--
-  Generated template for the TopicDetail page.
-
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
--->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>topicDetail</ion-title>
+    <!--<ion-title>topicDetail</ion-title>-->
+    <ion-buttons end>
+      <button ion-button icon-only color="royal">
+        <ion-icon name="more"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>
 
-
 <ion-content padding>
-  {{person.title}}
+  <ion-list>
+    <ion-item>
+      <ion-avatar item-left>
+        <img src="{{person.author.avatar_url}}" alt="">
+      </ion-avatar>
+      <h2>{{person.title}}</h2>
+      <p>
+        <ion-icon ios="md-time" md="md-time" class="primary">
+        </ion-icon>
+        {{person.create_at | date: 'y/MM/dd'}}
+        <ion-icon ios="ios-person" md="md-person"></ion-icon>
+        {{person.author.loginname}} - {{person.visit_count}}
+
+      </p>
+    </ion-item>
+  </ion-list>
+  <div [innerHtml]="person.content"></div>
+
+  <ion-fab bottom right>
+    <button ion-fab mini color="danger">
+      <ion-icon name="md-add"></ion-icon>
+    </button>
+    <ion-fab-list side="top" class="vimeo">
+      <button ion-fab color="primary" (click)="share('vimeo', fab)">
+        <ion-icon ios="md-share" md="md-share"></ion-icon>
+      </button>
+    </ion-fab-list>
+    <ion-fab-list side="bottom" class="facebook">
+      <button ion-fab color="secondary" (click)="share('facebook', fab)">
+        <ion-icon ios="md-star" md="md-star"></ion-icon>
+      </button>
+    </ion-fab-list>
+    <ion-fab-list side="left" class="googleplus">
+      <button ion-fab color="googleIcon" (click)="share('googleplus', fab)">
+        <ion-icon  ios="md-create" md="md-create"></ion-icon>
+      </button>
+    </ion-fab-list>
+    <ion-fab-list side="right" class="twitter">
+      <button ion-fab color="dark" (click)="share('twitter', fab)">
+        <ion-icon name="logo-twitter"></ion-icon>
+      </button>
+    </ion-fab-list>
+  </ion-fab>
+
 </ion-content>
+<!--<ion-footer>
+  <ion-toolbar>
+    <p>Ash, Misty, Brock</p>
+    <ion-buttons end>
+      <button ion-button icon-right color="royal">
+        Send
+        <ion-icon name="send"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-footer>-->

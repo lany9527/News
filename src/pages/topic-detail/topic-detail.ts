@@ -1,24 +1,26 @@
-import { Component } from '@angular/core';
-import { NavController, NavParams} from 'ionic-angular';
-// import {PeopleService} from '../../providers/people-service/people-service';
-/*
-  Generated class for the TopicDetail page.
+import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
+import { NavController, NavParams, FabContainer } from 'ionic-angular';
+import { Http } from '@angular/http';
 
-  See http://ionicframework.com/docs/v2/components/#navigation for more info on
-  Ionic pages and navigation.
-*/
+import { ApiService } from '../../providers/api-service';
+
 @Component({
   selector: 'page-topic-detail',
   templateUrl: 'topic-detail.html'
 })
-export class TopicDetailPage {
+export class TopicDetailPage implements OnInit {
   public person: any;
-  constructor(public navCtrl: NavController, public params: NavParams) { 
+  public topic: any;
+
+  constructor(public navCtrl: NavController, public params: NavParams, public apiService: ApiService, public http: Http) {
     this.person = params.data.person;
   }
-
-  ionViewDidLoad() {
-    console.log('Hello TopicDetailPage Page');
+  share(socialNet: string, fab: FabContainer) {
+    // fab.close();
+    console.log("Sharing in", socialNet);
   }
 
+  ngOnInit() {
+    console.log("TopicDetailPage")
+  }
 }

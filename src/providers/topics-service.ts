@@ -1,18 +1,20 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import 'rxjs/add/operator/map';
-
+import {ApiService} from './api-service';
 /*
   Generated class for the PeopleService provider.
 
   See https://angular.io/docs/ts/latest/guide/dependency-injection.html
   for more info on providers and Angular 2 DI.
+  , public apiService: ApiService
 */
 @Injectable()
-export class PeopleService {
+export class TopicsService {
   data: any;
-  constructor(public http: Http) {
-    console.log('Hello PeopleService Provider');
+  constructor(public http: Http, public apiService: ApiService) {
+    // console.log('Hello PeopleService Provider');
+    
   }
   load(){
     if(this.data){
@@ -20,10 +22,11 @@ export class PeopleService {
     }
 
     return new Promise(resolve => {
-      this.http.get('http://ionichina.com/api/v1/topics')
+      this.apiService.ionApi.getTopics
       .map(res => res.json())
       .subscribe(data => {
         this.data = data.data;
+        console.log(data);
         resolve(this.data);
       })
     })

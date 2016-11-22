@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController, NavParams} from 'ionic-angular';
+import {NavParams} from 'ionic-angular';
 @Component ({
   selector: 'page-profile',
 	templateUrl: 'profile.html'

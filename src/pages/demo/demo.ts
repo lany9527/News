@@ -14,7 +14,7 @@ export class DemoPage {
   }
 
   share(socialNet: string, fab: FabContainer) {
-    fab.close();
+    // fab.close();
     console.log("Sharing in", socialNet);
   }
 }

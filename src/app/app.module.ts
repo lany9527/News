@@ -13,6 +13,10 @@ import { SigninPage } from "../pages/about/signin";
 import { SignupPage } from "../pages/about/signup";
 import { ProfilePage } from "../pages/about/profile";
 import { TopicDetailPage } from "../pages/topic-detail/topic-detail";
+
+
+import {TopicsService} from '../providers/topics-service';
+import {ApiService} from '../providers/api-service';
 @NgModule({
   declarations: [
     MyApp,
@@ -42,8 +46,11 @@ import { TopicDetailPage } from "../pages/topic-detail/topic-detail";
     SigninPage,
     SignupPage,
     ProfilePage,
-    TopicDetailPage
+    TopicDetailPage    
   ],
-  providers: []
+  providers: [
+    TopicsService,
+    ApiService
+    ]
 })
 export class AppModule { }
