@@ -1,5 +1,4 @@
-///<reference path="../pages/about/navigation-details.ts"/>
-///<reference path="../pages/about/signup.ts"/>
+
 import { NgModule } from '@angular/core';
 import { IonicApp, IonicModule } from 'ionic-angular';
 import { MyApp } from './app.component';
@@ -13,7 +12,7 @@ import { SigninPage } from "../pages/about/signin";
 import { SignupPage } from "../pages/about/signup";
 import { ProfilePage } from "../pages/about/profile";
 import { TopicDetailPage } from "../pages/topic-detail/topic-detail";
-
+import { NewTopicPage } from "../pages/new-topic/new-topic";
 
 import {TopicsService} from '../providers/topics-service';
 import {ApiService} from '../providers/api-service';
@@ -29,7 +28,8 @@ import {ApiService} from '../providers/api-service';
     SigninPage,
     SignupPage,
     ProfilePage,
-    TopicDetailPage
+    TopicDetailPage,
+    NewTopicPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -46,7 +46,8 @@ import {ApiService} from '../providers/api-service';
     SigninPage,
     SignupPage,
     ProfilePage,
-    TopicDetailPage    
+    TopicDetailPage,
+    NewTopicPage
   ],
   providers: [
     TopicsService,

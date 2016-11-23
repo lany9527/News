@@ -21,7 +21,7 @@ export class ApiService {
 
     this.ionApi = {
       //主题首页
-      getTopics: this.http.get('http://ionichina.com/api/v1/topics'),
+      getTopics: this.http.get('http://ionichina.com/api/v1/topics?tab=ask'),
       //主题详情
       // getTopicDetail: this.http.get('http://ionichina.com/api/v1/topic/555f205aef16811c3ea0a79a')
       // getTopicDetail: this.http.get('http://ionichina.com/api/v1/topic/'+this.id+"'")

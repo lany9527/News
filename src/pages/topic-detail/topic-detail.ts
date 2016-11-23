@@ -1,7 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
-import { NavController, NavParams, FabContainer } from 'ionic-angular';
+import { Component, OnInit } from '@angular/core';
+import { NavController, NavParams } from 'ionic-angular';
 import { Http } from '@angular/http';
-
+import { SocialSharing } from 'ionic-native';  
 import { ApiService } from '../../providers/api-service';
 
 @Component({
@@ -15,10 +15,15 @@ export class TopicDetailPage implements OnInit {
   constructor(public navCtrl: NavController, public params: NavParams, public apiService: ApiService, public http: Http) {
     this.person = params.data.person;
   }
-  share(socialNet: string, fab: FabContainer) {
-    // fab.close();
-    console.log("Sharing in", socialNet);
-  }
+  share(message, subject?, file?, url?) {  
+  SocialSharing.share(message, subject, file, url).then(() => {  
+    // Success!  
+    console.log("success!");
+  }, (err) => {  
+    // Error!  
+    console.log("fail"); 
+  });  
+}  
 
   ngOnInit() {
     console.log("TopicDetailPage")
