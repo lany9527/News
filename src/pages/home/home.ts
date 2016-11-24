@@ -122,10 +122,13 @@ export class HomePage implements OnInit {
         });
         alert.present();
     }
-    //新建
-    addNewTopic(){
+    //跳转新建
+    loadNewTopicPage() {
         console.log("add new topic");
         let modal = this.modalCtrl.create(NewTopicPage);
+        modal.onDidDismiss(data => {
+            console.log(data);
+        });
         modal.present();
     }
 

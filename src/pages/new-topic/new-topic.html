@@ -5,14 +5,31 @@
   Ionic pages and navigation.
 -->
 <ion-header>
-
   <ion-navbar>
-    <ion-title>new-topic</ion-title>
+    <ion-icon ios="ios-arrow-back" md="md-arrow-back" start></ion-icon>
+    <ion-title>发起话题</ion-title>
   </ion-navbar>
-
 </ion-header>
 
 
 <ion-content padding>
+  <ion-list>
+    <ion-item>
+      <ion-label floating>主题：</ion-label>
+      <ion-input type="text" [(ngModel)]=topic.title ></ion-input>
+    </ion-item>
 
+    <ion-item>
+      <ion-label floating>标签</ion-label>
+      <ion-input type="text" [(ngModel)]=topic.tab></ion-input>
+    </ion-item>
+
+    <ion-item>
+      <ion-label floating>内容</ion-label>
+      <ion-input type="text" [(ngModel)]=topic.content ></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+      <button ion-button color="primary" block (click)="addNewTopic()">确定</button>
+    </div>
 </ion-content>
