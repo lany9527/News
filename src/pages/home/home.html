@@ -30,7 +30,6 @@
           <ion-badge color="#e59f49" *ngIf="!person.top && person.tab === 'job'">招聘</ion-badge>
           <ion-badge color="#e59f49" *ngIf="!person.top && person.tab === 'bb'">吐槽</ion-badge>
           {{person.author.loginname}}
-          <!--2015-05-22T12:26:02.597Z-->
         </p>
       </ion-item>
       <ion-item-options side="right">
@@ -51,4 +50,15 @@
       </ion-item-options>
     </ion-item-sliding>
   </ion-list>
+
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content
+      pullingIcon="arrow-dropdown"
+      pullingText="下拉刷新"
+      refreshingSpinner="circles"
+      refrechingText="正在刷新......"
+    >
+    </ion-refresher-content>
+    
+  </ion-refresher>
 </ion-content>
