@@ -1,20 +1,35 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      Profile
+      用户信息
     </ion-title>
   </ion-navbar>
 </ion-header>
 <ion-content>
   <ion-card>
-  <img src="{{user.headface}}"/>
-  <ion-card-content>
-    <ion-card-title>
-      Nine Inch Nails Live
-      </ion-card-title>
-    <p>
-      王者与强者的区别就在于，强者只拥有强大的力量，而王者则兼具力量与智慧，凡事都准备充分，强大的力量不如万全的准备
-    </p>
-  </ion-card-content>
-</ion-card>
+    <img src="../../assets/images/aboutBg2.jpg" />
+    <div class="card-title">
+      <ion-grid>
+        <ion-row>
+          <ion-col width-30> </ion-col>
+          <ion-col width-30>
+            <ion-avatar>
+              <img class="personal-img" src="{{user.headface}}">
+              <!--<button>-->
+              <p class="personal-name">{{user.username}}</p>
+              <!--</button>-->
+            </ion-avatar>
+          </ion-col>
+          <ion-col width-30> </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+  <ion-grid>
+    <ion-row>
+      <ion-col width-30>我的消息</ion-col>
+      <ion-col width-30>我的收藏</ion-col>
+      <ion-col width-30>我的话题</ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

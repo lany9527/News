@@ -16,15 +16,17 @@ export class AboutPage {
   constructor(public navCtrl: NavController, public modalCtrl: ModalController) {
     this.user.username = "";
     this.user.password = "";
-    this.user.headface = "../../assets/images/1.jpg";
+    this.user.headface = "";
     // let localStorage:any = {};
     if (localStorage["logined"] === "true") {
-      this.user.headface = "../../assets/images/" + localStorage["username"] + ".jpg";
+      this.user.headface = localStorage['headface'];
+      this.user.username = localStorage['username'];
     } else {
       let modal = modalCtrl.create(SigninPage);
       modal.onDidDismiss(data=>{
         console.log(data);
-        this.user.headface = "../../assets/images/" + data + ".jpg";
+        this.user.headface = data.avatar_url;
+        this.user.username = data.loginname;
       });
       modal.present();
     }

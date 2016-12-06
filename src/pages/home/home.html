@@ -23,12 +23,12 @@
         </ion-avatar>
         <h2>{{person.title}}</h2>
         <p>
-          <ion-badge color="secondary" *ngIf="person.top && person.tab === 'share'">置顶</ion-badge>
-          <ion-badge color="settingIcon" *ngIf="!person.top && person.good">精华</ion-badge>
-          <ion-badge color="#e59f49" *ngIf="!person.good && !person.top && person.tab === 'share'">分享</ion-badge>
-          <ion-badge color="#387ef5" *ngIf="!person.top && person.tab === 'ask'">问答</ion-badge>
-          <ion-badge color="#e59f49" *ngIf="!person.top && person.tab === 'job'">招聘</ion-badge>
-          <ion-badge color="#e59f49" *ngIf="!person.top && person.tab === 'bb'">吐槽</ion-badge>
+          <ion-badge class="top" *ngIf="person.top && person.tab === 'share'">置顶</ion-badge>
+          <ion-badge class="good" *ngIf="!person.top && person.good">精华</ion-badge>
+          <ion-badge class="share" *ngIf="!person.good && !person.top && person.tab === 'share'">分享</ion-badge>
+          <ion-badge class="ask" *ngIf="!person.top && person.tab === 'ask'">问答</ion-badge>
+          <ion-badge class="job" *ngIf="!person.top && person.tab === 'job'">招聘</ion-badge>
+          <ion-badge class="bb" *ngIf="!person.top && person.tab === 'bb'">吐槽</ion-badge>
           {{person.author.loginname}}
         </p>
       </ion-item>

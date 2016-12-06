@@ -34,7 +34,7 @@ export class HomePage implements OnInit {
 			this.http.get(reqUrl)
 				.map(res => res.json())
 				.subscribe(data => {
-					this.people = data.data;
+					this.people = data.data.reverse();
 					// console.log(data);
 					resolve(this.people);
 				})
@@ -141,7 +141,7 @@ export class HomePage implements OnInit {
 			this.http.get(reqUrl)
 				.map(res => res.json())
 				.subscribe(data => {
-					this.people = this.people.concat(data.data);
+					this.people = data.data.concat(this.people);
 					console.log(data);
 					resolve(this.people);
 				})
@@ -160,7 +160,7 @@ export class HomePage implements OnInit {
 	//下拉刷新
 	doRefresh(refresher) {
 		console.log(refresher);
-		this.page += 1
+		this.page += 1;
 		this.loadMore(this.page);
 		setTimeout(() => {
 			console.log("异步操作结束");

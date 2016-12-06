@@ -7,10 +7,12 @@ page-about {
     }
 
     .card-title {
+      background-color: #05c0ab;
       position: absolute;
-      top: 15%;
+      top: 0%;
       font-size: 2.0em;
       width: 100%;
+      height: 100%;
       font-weight: bold;
       color: #fff;
     }
@@ -20,6 +22,8 @@ page-about {
     }
     .personal-img{
       border-radius: 100%;
+      margin-top: 1rem;
+      border: 3px #ffffff solid;
     }
 
     //reset styles
