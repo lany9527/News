@@ -1,0 +1,22 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{item.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list no-border no-lines>
+    <ion-item>
+      <ion-label>手机号绑定</ion-label>
+      <ion-note item-right>绑定手机号</ion-note>
+    </ion-item>
+    <ion-list-header>
+      <p>社交账号绑定</p>
+    </ion-list-header>
+    <ion-item *ngFor="let item of bindings">
+      <ion-toggle checked="{{item.checked}}"></ion-toggle>
+      <ion-label>{{item.title}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

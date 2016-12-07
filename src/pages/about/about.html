@@ -1,33 +1,52 @@
+<script src="../setting/setting.ts"></script>
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      用户中心
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content class="card-background-page">
   <ion-card>
-    <img src="../../assets/images/aboutBg2.jpg" />
+    <img src="../../assets/images/aboutBg2.jpg"/>
     <div class="card-title">
       <ion-grid>
         <ion-row>
-          <ion-col width-30> </ion-col>
-          <ion-col width-30  (click)="openProfilePage()">
+          <ion-col width-30></ion-col>
+          <ion-col width-30 (click)="openProfilePage()">
             <ion-avatar>
               <img class="personal-img" src="{{user.headface}}">
               <!--<button>-->
-                <p class="personal-name">{{user.username}}</p>
+              <p class="personal-name">{{user.username}}</p>
               <!--</button>-->
             </ion-avatar>
           </ion-col>
-          <ion-col width-30> </ion-col>
+          <ion-col width-30></ion-col>
         </ion-row>
       </ion-grid>
     </div>
   </ion-card>
   <ion-card>
     <ion-grid>
+      <ion-row *ngFor="let line of items; let i = index">
+        <ion-col width-30 *ngFor="let item of line.line1">
+          <button class="ion-button" (click)="openNavDetailsPage(item)">
+            <ion-icon class="ion-icon {{item.icon}} {{item.color}}"></ion-icon>
+            <br>
+            <span color="mainText">{{item.title}}</span>
+          </button>
+        </ion-col>
+        <ion-col width-30 *ngFor="let item of line.line2">
+          <button class="ion-button" (click)="openNavDetailsPage(item)">
+            <ion-icon class="ion-icon {{item.icon}}" name="" color="{{item.color}}"></ion-icon>
+            <br>
+            <span color="mainText">{{item.title}}</span>
+          </button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <!--<ion-grid>
       <ion-row>
         <ion-col width-30>
           <button ion-button clear ion-left>
@@ -44,16 +63,16 @@
         <ion-col width-30>
           <button ion-button clear ion-left>
             <ion-icon name="settings" color="settingIcon"></ion-icon>
-            <span color="mainText">收藏</span>
+            <span color="mainText">设置</span>
           </button>
         </ion-col>
       </ion-row>
-    </ion-grid>
-    <ion-list inset>
-      <button ion-item ion-left *ngFor="let item of items" (click)="openNavDetailsPage(item)">
-        <ion-icon item-left name="{{item.icon}}" [ngStyle]="{'color': item.color}"></ion-icon>
-        {{item.title}}
-      </button>
-    </ion-list>
+    </ion-grid>-->
+    <!--<ion-list inset>-->
+    <!--<button ion-item ion-left *ngFor="let item of items" (click)="openNavDetailsPage(item)">-->
+    <!--<ion-icon item-left name="{{item.icon}}" [ngStyle]="{'color': item.color}"></ion-icon>-->
+    <!--{{item.title}}-->
+    <!--</button>-->
+    <!--</ion-list>-->
   </ion-card>
 </ion-content>

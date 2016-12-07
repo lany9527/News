@@ -20,18 +20,67 @@ page-about {
     .personal-name {
       color: #fff;
     }
-    .personal-img{
+    .personal-img {
       border-radius: 100%;
       margin-top: 1rem;
       border: 3px #ffffff solid;
     }
 
     //reset styles
-    .card-md, .card-ios{
+    .card-md, .card-ios {
       margin: 0;
       width: 100%;
       border-radius: 0;
+      box-shadow: none;
     }
+  }
+  .toolbar-title-md {
+    text-align: center;
+  }
+  .icon-md-collectionIcon {
+  }
+  .text-md-mainText {
+    display: block;
+  }
+  ion-col {
+    margin-bottom: 3rem;
+  }
+  .ion-button {
+    padding: 0 1.1rem;
+    font-size: 1.4rem;
+    margin: 0.4rem 0.2rem;
+    height: 3.6rem;
+    background: none;
 
+    .ion-icon {
+      margin-bottom: 1.2rem;
+      font-size: 36px;
+      padding: 0.6rem;
+      border-radius: 100%;
+    }
+    .icon-offline {
+      color: #ffffff;
+      background-color: rgba(103, 203, 235, 1);
+    }
+    .icon-feedback {
+      color: #ffffff;
+      background-color: rgba(235, 136, 33, 1);
+    }
+    .icon-setting {
+      color: #ffffff;
+      background-color: rgba(118, 135, 239, 1);
+    }
+    .icon-collection {
+      color: #ffffff;
+      background-color: rgba(255, 136, 31, 1);
+    }
+    .icon-message {
+      color: #ffffff;
+      background-color: rgba(239, 101, 72, 1);
+    }
+    .icon-follow {
+      color: #ffffff;
+      background-color: rgba(244, 112, 207, 1);
+    }
   }
 }

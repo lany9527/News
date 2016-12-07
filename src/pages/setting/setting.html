@@ -1,0 +1,15 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>{{item.title}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list no-border>
+    <ion-item *ngFor="let setItem of settings" (click)="setting(setItem)">
+      <ion-toggle *ngIf="setItem.isToggle" checked="true"></ion-toggle>
+      <ion-icon class="{{setItem.icon}}" item-left></ion-icon>
+      <ion-label>{{setItem.title}}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

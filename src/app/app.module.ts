@@ -1,26 +1,28 @@
+import {NgModule} from '@angular/core';
+import {IonicApp, IonicModule} from 'ionic-angular';
+import {MyApp} from './app.component';
+import {AboutPage} from '../pages/about/about';
+import {FollowPage} from '../pages/follow/follow';
+import {HomePage} from '../pages/home/home';
+import {TabsPage} from '../pages/tabs/tabs';
+import {VideoPage} from '../pages/video/video'
 
-import { NgModule } from '@angular/core';
-import { IonicApp, IonicModule } from 'ionic-angular';
-import { MyApp } from './app.component';
-import { AboutPage } from '../pages/about/about';
-import { FollowPage } from '../pages/follow/follow';
-import { HomePage } from '../pages/home/home';
-import { TabsPage } from '../pages/tabs/tabs';
-import { VideoPage } from '../pages/video/video'
-import { NavigationDetailsPage } from "../pages/about/navigation-details";
-import { SigninPage } from "../pages/about/signin";
-import { SignupPage } from "../pages/about/signup";
-import { ProfilePage } from "../pages/about/profile";
-import { TopicDetailPage } from "../pages/topic-detail/topic-detail";
-import { NewTopicPage } from "../pages/new-topic/new-topic";
+import {SigninPage} from "../pages/about/signin";
+import {SignupPage} from "../pages/about/signup";
+import {ProfilePage} from "../pages/about/profile";
+import {TopicDetailPage} from "../pages/topic-detail/topic-detail";
+import {NewTopicPage} from "../pages/new-topic/new-topic";
 
 import {TopicsService} from '../providers/topics-service';
 import {ApiService} from '../providers/api-service';
+import {NavDetailsPage} from "../pages/nav-detail/nav-detail";
+import {SettingPage} from "../pages/setting/setting";
+import {BindAccountPage} from "../pages/bind-account/bind-account";
 @NgModule({
   declarations: [
     MyApp,
     AboutPage,
-    NavigationDetailsPage,
+    NavDetailsPage,
     FollowPage,
     HomePage,
     TabsPage,
@@ -29,7 +31,9 @@ import {ApiService} from '../providers/api-service';
     SignupPage,
     ProfilePage,
     TopicDetailPage,
-    NewTopicPage
+    NewTopicPage,
+    SettingPage,
+    BindAccountPage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -38,7 +42,7 @@ import {ApiService} from '../providers/api-service';
   entryComponents: [
     MyApp,
     AboutPage,
-    NavigationDetailsPage,
+    NavDetailsPage,
     FollowPage,
     HomePage,
     VideoPage,
@@ -47,11 +51,14 @@ import {ApiService} from '../providers/api-service';
     SignupPage,
     ProfilePage,
     TopicDetailPage,
-    NewTopicPage
+    NewTopicPage,
+    SettingPage,
+    BindAccountPage
   ],
   providers: [
     TopicsService,
     ApiService
-    ]
+  ]
 })
-export class AppModule { }
+export class AppModule {
+}
