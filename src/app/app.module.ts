@@ -18,6 +18,8 @@ import {ApiService} from '../providers/api-service';
 import {NavDetailsPage} from "../pages/nav-detail/nav-detail";
 import {SettingPage} from "../pages/setting/setting";
 import {BindAccountPage} from "../pages/bind-account/bind-account";
+import {EditDataPage} from "../pages/edit-data/edit-data";
+import {ModifyPhonePage} from "../pages/modify-phone/modify-phone";
 @NgModule({
   declarations: [
     MyApp,
@@ -33,7 +35,9 @@ import {BindAccountPage} from "../pages/bind-account/bind-account";
     TopicDetailPage,
     NewTopicPage,
     SettingPage,
-    BindAccountPage
+    BindAccountPage,
+    EditDataPage,
+    ModifyPhonePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -53,7 +57,9 @@ import {BindAccountPage} from "../pages/bind-account/bind-account";
     TopicDetailPage,
     NewTopicPage,
     SettingPage,
-    BindAccountPage
+    BindAccountPage,
+    EditDataPage,
+    ModifyPhonePage
   ],
   providers: [
     TopicsService,

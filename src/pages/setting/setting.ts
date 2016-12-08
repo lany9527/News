@@ -1,6 +1,7 @@
 import {Component} from '@angular/core';
 import {NavController, AlertController, NavParams} from 'ionic-angular';
 import {BindAccountPage} from "../bind-account/bind-account";
+import {EditDataPage} from "../edit-data/edit-data";
 
 @Component({
   selector: 'page-setting',
@@ -32,9 +33,19 @@ export class SettingPage {
       this.setNetwork();
     }else if (item.icon === "icon-bind"){
       this.bindCount(item);
+    }else if (item.icon === "icon-editfile"){
+      this.editData(item)
     }
   }
-
+  //编辑资料
+  editData(item){
+    this.navCtrl.push(EditDataPage, {item: item});
+  };
+  //社交账号绑定
+  bindCount(item){
+    this.navCtrl.push(BindAccountPage, {item: item});
+  }
+  //非WIFI下网络图片下载选项
   setNetwork() {
     let alert = this.alertCtrl.create();
     alert.setTitle('非WIFI网络流量');
@@ -67,9 +78,7 @@ export class SettingPage {
     });
     alert.present();
   }
-  bindCount(item){
-    this.navCtrl.push(BindAccountPage, {item: item});
-  }
+
 
   ionViewDidLoad() {
     console.log('Hello SettingPage Page', this.item);

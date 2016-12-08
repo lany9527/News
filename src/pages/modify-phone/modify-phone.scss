@@ -1,0 +1,17 @@
+page-modify-phone {
+  ion-grid{
+    padding: 0;
+  }
+  .button-small-ios,
+  .button-small-md{
+    margin-top: 3rem;
+  }
+  .code{
+    .item-ios{
+      padding-left: 10px;
+    }
+  }
+  .list-ios > .item-block:first-child {
+     border-top: none;
+  }
+}
