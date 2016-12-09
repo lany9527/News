@@ -39,8 +39,7 @@ export class HomePage {
               public modalCtrl: ModalController,
               public platform: Platform,
               public loadingCtrl: LoadingController,
-              private httpService: HttpService
-  ) {
+              private httpService: HttpService) {
     // this.currentDate = new Date();
     this.tabs = [
       {"title": "全部", "tab": "all"},
@@ -51,51 +50,51 @@ export class HomePage {
     ];
   }
 
-  getTopics():void {
+  getTopics(): void {
     // this.topicsService.load().then(data => {
     //     this.people = data;
     //     // console.log(this.people);
     // });
     /*return new Promise(resolve => {
-      var reqUrl = 'http://ionichina.com/api/v1/topics?limit=40';
-      this.http.get(reqUrl)
-        .map(res => res.json())
-        .subscribe(data => {
-          // this.people = data.data.reverse(); //下拉刷新
-          this.people = data.data; //上滑加载
-          console.log(data);
-          resolve(this.people);
-        })
-    })*/
+     var reqUrl = 'http://ionichina.com/api/v1/topics?limit=40';
+     this.http.get(reqUrl)
+     .map(res => res.json())
+     .subscribe(data => {
+     // this.people = data.data.reverse(); //下拉刷新
+     this.people = data.data; //上滑加载
+     console.log(data);
+     resolve(this.people);
+     })
+     })*/
     this.httpService.getAllTopics()
       .then(data => this.topics = data);
   }
 
   /*switchTopic(tabContent) {
-    console.log(tabContent.tab);
-    this.topics = [];
-    if (tabContent.tab === 'all') {
-      var reqUrl = 'http://ionichina.com/api/v1/topics?limit=40';
-    } else {
-      var reqUrl = 'http://ionichina.com/api/v1/topics?limit=10&tab=' + tabContent.tab;
-    }
-    let loader = this.loadingCtrl.create({
-      content: "Please wait...",
-      // duration: 1500
-    });
-    loader.present();
+   console.log(tabContent.tab);
+   this.topics = [];
+   if (tabContent.tab === 'all') {
+   var reqUrl = 'http://ionichina.com/api/v1/topics?limit=40';
+   } else {
+   var reqUrl = 'http://ionichina.com/api/v1/topics?limit=10&tab=' + tabContent.tab;
+   }
+   let loader = this.loadingCtrl.create({
+   content: "Please wait...",
+   // duration: 1500
+   });
+   loader.present();
 
-    return new Promise(resolve => {
-      this.http.get(reqUrl)
-        .map(res => res.json())
-        .subscribe(data => {
-          this.topics = data.data;
-          console.log(data);
-          resolve(this.topics);
-          loader.dismiss();
-        })
-    })
-  }*/
+   return new Promise(resolve => {
+   this.http.get(reqUrl)
+   .map(res => res.json())
+   .subscribe(data => {
+   this.topics = data.data;
+   console.log(data);
+   resolve(this.topics);
+   loader.dismiss();
+   })
+   })
+   }*/
   switchTopic(tabContent) {
     console.log(tabContent.tab);
     this.topics = [];
@@ -103,12 +102,21 @@ export class HomePage {
       content: "Please wait...",
     });
     loader.present();
-    this.httpService.getTopicsByTab(tabContent.tab)
-      .then(data =>{
-        this.topics = data;
-        loader.dismiss();
-      });
+    if (tabContent.tab === 'all') {
+      this.httpService.getAllTopics()
+        .then(data => {
+          this.topics = data;
+          loader.dismiss();
+        });
+    } else {
+      this.httpService.getTopicsByTab(tabContent.tab)
+        .then(data => {
+          this.topics = data;
+          loader.dismiss();
+        });
+    }
   }
+
   //打开详情页  跳转到目标页面，利用appCtrl隐藏tabs
   openTopicDetail(person) {
     this.appCtrl.getRootNav().push(TopicDetailPage, {person: person});
@@ -202,7 +210,6 @@ export class HomePage {
    }*/
 
 
-
   //跳转新建
   /*loadNewTopicPage() {
    console.log("add new topic");
@@ -219,8 +226,8 @@ export class HomePage {
     this.page += 1;
     this.loadMore(tabContent, this.page);
     // setTimeout(() => {
-      console.log("异步操作结束");
-      refresher.complete();
+    console.log("异步操作结束");
+    refresher.complete();
     // }, 2000);
   }
 
@@ -234,6 +241,7 @@ export class HomePage {
       infiniteScroll.complete();
     }, 2000);
   }
+
 //下拉更新记录
   loadMore(tabContent, page) {
     return new Promise(resolve => {
@@ -256,6 +264,7 @@ export class HomePage {
         })
     })
   }
+
   // ngOnInit() {
   //   this.loadPeople();
   // }
