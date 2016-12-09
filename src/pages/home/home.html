@@ -1,5 +1,5 @@
 <ion-header>
-  <ion-navbar>
+  <!--<ion-navbar>
     <ion-buttons start>
       <button ion-button icon-only color="royal" (click)="showFilterbox()">
         <ion-icon name="search"></ion-icon>
@@ -11,47 +11,45 @@
         <ion-icon name="more"></ion-icon>
       </button>
     </ion-buttons>
-  </ion-navbar>
+  </ion-navbar>-->
+  <ion-toolbar no-border-top>
+    <ion-segment [(ngModel)]="tab">
+      <ion-segment-button
+        *ngFor="let tabContent of tabs"
+        value="{{tabContent.tab}}"
+        (click)="switchTopic(tabContent)"
+      >
+        {{tabContent.title}}
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
-    <ion-item-sliding *ngFor="let person of people">
-      <ion-item (click)="openTopicDetail(person)">
-        <ion-avatar item-left>
-          <img src="{{person.author.avatar_url}}" alt="">
-        </ion-avatar>
-        <h2>{{person.title}}</h2>
-        <p>
-          <ion-badge class="top" *ngIf="person.top && person.tab === 'share'">置顶</ion-badge>
-          <ion-badge class="good" *ngIf="!person.top && person.good">精华</ion-badge>
-          <ion-badge class="share" *ngIf="!person.good && !person.top && person.tab === 'share'">分享</ion-badge>
-          <ion-badge class="ask" *ngIf="!person.top && person.tab === 'ask'">问答</ion-badge>
-          <ion-badge class="job" *ngIf="!person.top && person.tab === 'job'">招聘</ion-badge>
-          <ion-badge class="bb" *ngIf="!person.top && person.tab === 'bb'">吐槽</ion-badge>
-          {{person.author.loginname}}
-        </p>
-      </ion-item>
-      <ion-item-options side="right">
-        <button ion-button color="primary">
-        <ion-icon name="text"></ion-icon>
-        Text
-      </button>
-        <button ion-button color="secondary">
-        <ion-icon name="call"></ion-icon>
-        Call
-      </button>
-      </ion-item-options>
-      <ion-item-options side="left">
-        <button ion-button color="primary">
-        <ion-icon name="mail"></ion-icon>
-        Email
-      </button>
-      </ion-item-options>
-    </ion-item-sliding>
-  </ion-list>
-
-  <ion-refresher (ionRefresh)="doRefresh($event)">
+  <div [ngSwitch]="tab" *ngFor="let tabContent of tabs">
+    <ion-list *ngSwitchCase=tabContent.tab>
+      <ion-item-sliding *ngFor="let topic of topics">
+        <ion-item (click)="openTopicDetail(topic)">
+          <ion-avatar item-left>
+            <img src="{{topic.author.avatar_url}}" alt="">
+          </ion-avatar>
+          <h2>{{topic.title}}</h2>
+          <p>
+            <ion-badge class="top" *ngIf="topic.top && topic.good ">置顶</ion-badge>
+            <ion-badge class="good" *ngIf="!topic.top && topic.good===true">精华</ion-badge>
+            <!--<ion-badge class="share" *ngIf="(person.good!==true) && !person.top && person.tab === 'share'">分享
+            </ion-badge>
+            <ion-badge class="ask" *ngIf="(person.good!==true) && !person.top && person.tab === 'ask'">问答</ion-badge>
+            <ion-badge class="job" *ngIf="(person.good!==true) && !person.top && person.tab === 'job'">招聘</ion-badge>
+            <ion-badge class="bb" *ngIf="(person.good!==true) && !person.top && person.tab === 'bb'">吐槽</ion-badge>-->
+            {{topic.author.loginname}}
+          </p>
+        </ion-item>
+      </ion-item-sliding>
+    </ion-list>
+  </div>
+  <!--下拉刷新列表-->
+  <!--<ion-refresher (ionRefresh)="doRefresh(tab,$event)">
     <ion-refresher-content
       pullingIcon="arrow-dropdown"
       pullingText="下拉刷新"
@@ -59,6 +57,15 @@
       refrechingText="正在刷新......"
     >
     </ion-refresher-content>
-    
-  </ion-refresher>
+  </ion-refresher>-->
+  <!--上滑加载列表-->
+  <ion-infinite-scroll
+    *ngIf='!moredata'
+    (ionInfinite)="doInfinite(tab,$event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data..."
+      distance="1%">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
 </ion-content>

@@ -20,6 +20,7 @@ import {SettingPage} from "../pages/setting/setting";
 import {BindAccountPage} from "../pages/bind-account/bind-account";
 import {EditDataPage} from "../pages/edit-data/edit-data";
 import {ModifyPhonePage} from "../pages/modify-phone/modify-phone";
+import {HttpService} from "../providers/http-service";
 @NgModule({
   declarations: [
     MyApp,
@@ -63,7 +64,8 @@ import {ModifyPhonePage} from "../pages/modify-phone/modify-phone";
   ],
   providers: [
     TopicsService,
-    ApiService
+    ApiService,
+    HttpService
   ]
 })
 export class AppModule {

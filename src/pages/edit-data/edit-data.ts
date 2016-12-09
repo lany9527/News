@@ -6,7 +6,7 @@ import {
   Platform,
   AlertController, ModalController
 } from 'ionic-angular';
-import { Camera } from 'ionic-native';
+// import { Camera } from 'ionic-native';
 
 import {ModifyPhonePage} from "../modify-phone/modify-phone";
 
@@ -66,7 +66,7 @@ export class EditDataPage {
           icon: !this.platform.is('ios') ? 'md-camera' : 'ios-camera',
           handler: ()=>{
             console.log("拍照");
-            var options = {
+            /*var options = {
               quality: 100,
               destinationType: Camera.DestinationType.FILE_URI,
               allowEdit: false,
@@ -83,7 +83,7 @@ export class EditDataPage {
               let base64Image = 'data:image/jpeg;base64,' + imageData;
             }, (err) => {
               // Handle error
-            });
+            });*/
           }
         },
         {
