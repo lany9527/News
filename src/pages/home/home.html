@@ -48,6 +48,28 @@
       </ion-item-sliding>
     </ion-list>
   </div>
+  <!--<ion-slides pager [ngSwitch]="tab" *ngFor="let tabContent of tabs">
+    <ion-slide *ngSwitchCase=tabContent.tab>
+      <ion-list *ngFor="let topic of topics">
+        <ion-item (click)="openTopicDetail(topic)">
+          <ion-avatar item-left>
+            <img src="{{topic.author.avatar_url}}" alt="">
+          </ion-avatar>
+          <h2>{{topic.title}}</h2>
+          <p>
+            <ion-badge class="top" *ngIf="topic.top && topic.good ">置顶</ion-badge>
+            <ion-badge class="good" *ngIf="!topic.top && topic.good===true">精华</ion-badge>
+            &lt;!&ndash;<ion-badge class="share" *ngIf="(person.good!==true) && !person.top && person.tab === 'share'">分享
+            </ion-badge>
+            <ion-badge class="ask" *ngIf="(person.good!==true) && !person.top && person.tab === 'ask'">问答</ion-badge>
+            <ion-badge class="job" *ngIf="(person.good!==true) && !person.top && person.tab === 'job'">招聘</ion-badge>
+            <ion-badge class="bb" *ngIf="(person.good!==true) && !person.top && person.tab === 'bb'">吐槽</ion-badge>&ndash;&gt;
+            {{topic.author.loginname}}
+          </p>
+        </ion-item>
+      </ion-list>
+    </ion-slide>
+  </ion-slides>-->
   <!--下拉刷新列表-->
   <!--<ion-refresher (ionRefresh)="doRefresh(tab,$event)">
     <ion-refresher-content

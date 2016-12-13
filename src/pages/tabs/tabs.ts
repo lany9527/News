@@ -4,6 +4,7 @@ import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { FollowPage } from '../follow/follow';
 import { VideoPage } from '../video/video'
+import {WelcomePage} from "../welcome/welcome";
 // import {DemoPage} from "../demo/demo";
 
 @Component({
@@ -16,6 +17,7 @@ export class TabsPage {
   tab2Root: any = VideoPage;
   tab3Root: any = FollowPage;
   tab4Root: any = AboutPage;
+  tab5Root: any = WelcomePage;
   // tab5Root: any = DemoPage;
 
   // @ViewChild('myTabs') tabRef: Tabs;

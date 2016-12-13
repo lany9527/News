@@ -12,24 +12,24 @@ import {HomePage} from "../pages/home/home";
   providers: [Storage]
 })
 export class MyApp {
-  // rootPage = TabsPage;
-  rootPage: any;
+  rootPage: any = TabsPage;
+  // rootPage: any;
 
   constructor(platform: Platform, public storage: Storage) {
-    this.storage.get('firstIn').then((result) => {
-      if (result) {
-        this.rootPage = HomePage;
-      } else {
-        this.storage.set('firstIn', true);
-        this.rootPage = WelcomePage;
-      }
-    });
+    // this.storage.get('firstIn').then((result) => {
+    //   if (result) {
+    //     this.rootPage = HomePage;
+    //   } else {
+    //     this.storage.set('firstIn', true);
+    //     this.rootPage = WelcomePage;
+    //   }
+    // });
 
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       StatusBar.styleDefault();
-      // Splashscreen.hide();
+      Splashscreen.hide();
     });
   }
 }
