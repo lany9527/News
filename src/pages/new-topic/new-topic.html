@@ -6,7 +6,6 @@
 -->
 <ion-header>
   <ion-navbar>
-    <ion-icon ios="ios-arrow-back" md="md-arrow-back" start></ion-icon>
     <ion-title>发起话题</ion-title>
   </ion-navbar>
 </ion-header>
@@ -16,20 +15,22 @@
   <ion-list>
     <ion-item>
       <ion-label floating>主题：</ion-label>
-      <ion-input type="text" [(ngModel)]=topic.title ></ion-input>
+      <ion-input type="text" [(ngModel)]=topic.title></ion-input>
     </ion-item>
 
     <ion-item>
-      <ion-label floating>标签</ion-label>
-      <ion-input type="text" [(ngModel)]=topic.tab></ion-input>
+      <ion-label>类型</ion-label>
+      <ion-select [(ngModel)]="tab" okText="Ok" cancelText="Dismiss">
+        <ion-option value="{{type.tab}}" *ngFor="let type of tabs">{{type.title}}</ion-option>
+      </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label floating>内容</ion-label>
-      <ion-input type="text" [(ngModel)]=topic.content ></ion-input>
+      <ion-input type="text" [(ngModel)]=topic.content></ion-input>
     </ion-item>
   </ion-list>
   <div padding>
-      <button ion-button color="primary" block (click)="addNewTopic()">确定</button>
-    </div>
+    <button ion-button color="primary" block (click)="addNewTopic()">确定</button>
+  </div>
 </ion-content>

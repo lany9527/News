@@ -31,11 +31,6 @@ export class HomePage {
   isAndroid: boolean = false;
   moredata: boolean = false; //默认设置可以加载更多数据
 
-  tab1:any;
-  tab2:any;
-  tab3:any;
-  tab4:any;
-
   constructor(public navCtrl: NavController,
               public http: Http,
               public topicsService: TopicsService,
@@ -54,11 +49,6 @@ export class HomePage {
       {"title": "招聘", "tab": "job"},
       {"title": "吐槽", "tab": "bb"}
     ];
-
-    this.tab1 = HomePage;
-    this.tab2 = HomePage;
-    this.tab3 = HomePage;
-    this.tab4 = HomePage;
   }
 
   getTopics(): void {

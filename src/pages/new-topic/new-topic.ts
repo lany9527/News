@@ -7,14 +7,22 @@ import { Http, Headers, RequestOptions } from '@angular/http';
   templateUrl: 'new-topic.html'
 })
 export class NewTopicPage {
-  // content: string = "请问目前有没有好的ionic2网络请求的例子？";
-  // tab: string = "ask";
-  // title: string = "ionic2 http";
   topic: any = {};
-  constructor(public navCtrl: NavController, public viewCtrl: ViewController, public loadCtrl: LoadingController, public http: Http) { 
-    this.topic["title"] = "ionic2 http";
-    this.topic["tab"] = "ask";
-    this.topic["content"] = "请问目前有没有好的ionic2网络请求的例子？";
+  tabs: Array<any>;
+
+  constructor(
+    public navCtrl: NavController,
+    public viewCtrl: ViewController,
+    public loadCtrl: LoadingController,
+    public http: Http)
+  {
+    this.tabs = [
+      {"title": "全部", "tab": "all"},
+      {"title": "分享", "tab": "share"},
+      {"title": "问答", "tab": "ask"},
+      {"title": "招聘", "tab": "job"},
+      {"title": "吐槽", "tab": "bb"}
+    ];
   }
   addNewTopic() {
     // let loading = this.loadCtrl.create({
