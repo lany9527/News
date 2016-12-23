@@ -3,8 +3,8 @@ import {Platform} from 'ionic-angular';
 import {StatusBar, Splashscreen} from 'ionic-native';
 import {Storage} from '@ionic/storage';
 import {TabsPage} from '../pages/tabs/tabs';
-import {WelcomePage} from "../pages/welcome/welcome";
-import {HomePage} from "../pages/home/home";
+// import {WelcomePage} from "../pages/welcome/welcome";
+// import {HomePage} from "../pages/home/home";
 
 
 @Component({

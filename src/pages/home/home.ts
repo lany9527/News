@@ -2,10 +2,8 @@ import {Component} from '@angular/core';
 import {
   App,
   NavController,
-  AlertController,
-  ViewController,
-  ModalController,
-  Platform, LoadingController
+  Platform,
+  LoadingController
 } from 'ionic-angular';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
@@ -33,15 +31,10 @@ export class HomePage {
 
   constructor(public navCtrl: NavController,
               public http: Http,
-              public topicsService: TopicsService,
               public appCtrl: App,
-              public alertCtrl: AlertController,
-              public viewCtrl: ViewController,
-              public modalCtrl: ModalController,
               public platform: Platform,
               public loadingCtrl: LoadingController,
               private httpService: HttpService) {
-    // this.currentDate = new Date();
     this.tabs = [
       {"title": "全部", "tab": "all"},
       {"title": "分享", "tab": "share"},

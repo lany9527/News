@@ -1,6 +1,8 @@
-import { Component } from '@angular/core';
-import { NavController, ViewController, LoadingController } from 'ionic-angular';
-import { Http, Headers, RequestOptions } from '@angular/http';
+import {Component} from '@angular/core';
+import {NavController, ToastController} from 'ionic-angular';
+import {Http} from '@angular/http';
+import {HttpService} from "../../providers/http-service";
+import {HomePage} from "../home/home";
 
 @Component({
   selector: 'page-new-topic',
@@ -10,12 +12,10 @@ export class NewTopicPage {
   topic: any = {};
   tabs: Array<any>;
 
-  constructor(
-    public navCtrl: NavController,
-    public viewCtrl: ViewController,
-    public loadCtrl: LoadingController,
-    public http: Http)
-  {
+  constructor(public navCtrl: NavController,
+              public toastCtrl: ToastController,
+              public http: Http,
+              public httpService: HttpService) {
     this.tabs = [
       {"title": "全部", "tab": "all"},
       {"title": "分享", "tab": "share"},
@@ -23,36 +23,30 @@ export class NewTopicPage {
       {"title": "招聘", "tab": "job"},
       {"title": "吐槽", "tab": "bb"}
     ];
+    this.topic['accesstoken'] = '39a3af85-14dc-4868-9840-0c050e1f6fe1';
   }
-  addNewTopic() {
-    // let loading = this.loadCtrl.create({
-    // 		content: '正在创建话题...',
-    // 		duration: 2000
-    // 	});
-    // 	loading.present();
 
-    //   setTimeout(()=>{
-    // 			loading.dismiss();//隐藏登录进度
-    // 			this.viewCtrl.dismiss("ok");
-    // 		},1000);
-    // Access Token:string 39a3af85-14dc-4868-9840-0c050e1f6fe1
-    console.log("添加话题");
-    let headers = new Headers({ 'Content-Type': 'application/json' });
-    // let topic = "title="+this.title+"&tab"+this.tab+"&content"+this.content;
-    let options = new RequestOptions({ headers: headers });
-
-    this.http.post('http://ionichina.com/topic/create', this.topic, options)
-      .map(resp =>{
-        resp.json
-        console.log(resp);
+  addNewTopic(topic): void {
+    console.log(topic);
+    if (!topic) {
+      return;
+    }
+    this.httpService.addTopic(topic)
+      .then(res => {
+        console.log("ok", res);
+        let toast = this.toastCtrl.create({
+          message: '修改成功',
+          duration: 1500,
+          position: 'middle'
+        });
+        toast.present();
+        toast.onDidDismiss(() => {
+          console.log('Dismissed toast');
+          this.navCtrl.push(HomePage);
+        });
       })
-      .subscribe(
-      data => console.log(data),
-      err => console.log(err),
-      () => console.log('发布成功')
-    );
-    
   }
+
   ionViewDidLoad() {
     console.log('Hello NewTopicPage Page');
   }

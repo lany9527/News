@@ -3,7 +3,7 @@ import { Component } from '@angular/core';
 import { HomePage } from '../home/home';
 import { AboutPage } from '../about/about';
 import { FollowPage } from '../follow/follow';
-import { VideoPage } from '../video/video'
+// import { VideoPage } from '../video/video'
 import {WelcomePage} from "../welcome/welcome";
 import {NewTopicPage} from "../new-topic/new-topic";
 // import {DemoPage} from "../demo/demo";

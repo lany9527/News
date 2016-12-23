@@ -17,20 +17,18 @@
       <ion-label floating>主题：</ion-label>
       <ion-input type="text" [(ngModel)]=topic.title></ion-input>
     </ion-item>
-
     <ion-item>
-      <ion-label>类型</ion-label>
-      <ion-select [(ngModel)]="tab" okText="Ok" cancelText="Dismiss">
+      <ion-label floating>内容</ion-label>
+      <ion-textarea type="text" rows="6" [(ngModel)]=topic.content></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label>添加标签</ion-label>
+      <ion-select [(ngModel)]="topic.tab" okText="Ok" cancelText="Dismiss">
         <ion-option value="{{type.tab}}" *ngFor="let type of tabs">{{type.title}}</ion-option>
       </ion-select>
     </ion-item>
-
-    <ion-item>
-      <ion-label floating>内容</ion-label>
-      <ion-input type="text" [(ngModel)]=topic.content></ion-input>
-    </ion-item>
   </ion-list>
   <div padding>
-    <button ion-button color="primary" block (click)="addNewTopic()">确定</button>
+    <button ion-button color="primary" block (click)="addNewTopic(topic)">发布</button>
   </div>
 </ion-content>
