@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="io.ionic.starter" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>Ionic App</name>
+  <name>What’s News</name>
   <description>An awesome Ionic/Cordova app.</description>
   <author email="hi@ionicframework" href="http://ionicframework.com/">Ionic Framework Team</author>
   <content src="index.html"/>
@@ -28,34 +28,16 @@
     <splash src="resources\android\splash\drawable-port-mdpi-screen.png" density="port-mdpi"/>
     <splash src="resources\android\splash\drawable-port-hdpi-screen.png" density="port-hdpi"/>
     <splash src="resources\android\splash\drawable-port-xhdpi-screen.png" density="port-xhdpi"/>
-    <splash src="resources\android\splash\drawable-port-xxhdpi-screen.png" density="port-xxhdpi"/>
-    <splash src="resources\android\splash\drawable-port-xxxhdpi-screen.png" density="port-xxxhdpi"/>
   </platform>
-  <platform name="ios">
-    <icon src="resources/ios/icon/icon-60@3x.png" width="180" height="180"/>
-    <icon src="resources/ios/icon/icon-60.png" width="60" height="60"/>
-    <icon src="resources/ios/icon/icon-60@2x.png" width="120" height="120"/>
-    <icon src="resources/ios/icon/icon-76.png" width="76" height="76"/>
-    <icon src="resources/ios/icon/icon-76@2x.png" width="152" height="152"/>
-    <icon src="resources/ios/icon/icon-40.png" width="40" height="40"/>
-    <icon src="resources/ios/icon/icon-40@2x.png" width="80" height="80"/>
-    <icon src="resources/ios/icon/icon.png" width="57" height="57"/>
-    <icon src="resources/ios/icon/icon@2x.png" width="114" height="114"/>
-    <icon src="resources/ios/icon/icon-72.png" width="72" height="72"/>
-    <icon src="resources/ios/icon/icon-72@2x.png" width="144" height="144"/>
-    <icon src="resources/ios/icon/icon-small.png" width="29" height="29"/>
-    <icon src="resources/ios/icon/icon-small@2x.png" width="58" height="58"/>
-    <icon src="resources/ios/icon/icon-50.png" width="50" height="50"/>
-    <icon src="resources/ios/icon/icon-50@2x.png" width="100" height="100"/>
-  </platform>
+  <platform name="ios"/>
   <preference name="webviewbounce" value="false"/>
   <preference name="UIWebViewBounce" value="false"/>
   <preference name="DisallowOverscroll" value="true"/>
   <preference name="android-minSdkVersion" value="16"/>
   <preference name="BackupWebStorage" value="none"/>
-  <preference name="SplashScreenDelay" value="0"/>
+  <preference name="SplashScreenDelay" value="3000"/>
   <preference name="FadeSplashScreen" value="false"/>
-  <preference name="FadeSplashScreenDuration" value="0"/>
+  <preference name="FadeSplashScreenDuration" value="500"/>
   <preference name="SplashScreenBackgroundColor" value="0xFFFFFFFF"/>
   <preference name="SplashScreen" value="screen"/>
   <feature name="StatusBar">

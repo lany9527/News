@@ -34,3 +34,7 @@ Thumbs.db
 UserInterfaceState.xcuserstate
 !/platforms/
 res/
+!/res/
+!/plugins/
+!/hooks/
+!/www/
