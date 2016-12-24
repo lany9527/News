@@ -22,6 +22,7 @@ import {EditDataPage} from "../pages/edit-data/edit-data";
 import {ModifyPhonePage} from "../pages/modify-phone/modify-phone";
 import {HttpService} from "../providers/http-service";
 import {WelcomePage} from "../pages/welcome/welcome";
+import {MessagePage} from "../pages/message/message";
 @NgModule({
   declarations: [
     MyApp,
@@ -40,7 +41,8 @@ import {WelcomePage} from "../pages/welcome/welcome";
     BindAccountPage,
     EditDataPage,
     ModifyPhonePage,
-    WelcomePage
+    WelcomePage,
+    MessagePage
   ],
   imports: [
     IonicModule.forRoot(MyApp)
@@ -63,7 +65,8 @@ import {WelcomePage} from "../pages/welcome/welcome";
     BindAccountPage,
     EditDataPage,
     ModifyPhonePage,
-    WelcomePage
+    WelcomePage,
+    MessagePage
   ],
   providers: [
     TopicsService,

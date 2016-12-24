@@ -2,8 +2,12 @@
   <ion-navbar>
     <!--<ion-title>topicDetail</ion-title>-->
     <ion-buttons end>
-      <button ion-button icon-only color="royal">
-        <ion-icon name="more"></ion-icon>
+      <button
+        ion-button icon-only
+        color="{{collectType === 2 ? 'danger' : 'dark'}}"
+        (click)="collect({accesstoken: '39a3af85-14dc-4868-9840-0c050e1f6fe1', topic_id: person.id})
+">
+        <ion-icon name="star"></ion-icon>
       </button>
     </ion-buttons>
   </ion-navbar>

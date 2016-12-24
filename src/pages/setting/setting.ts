@@ -2,6 +2,7 @@ import {Component} from '@angular/core';
 import {NavController, AlertController, NavParams} from 'ionic-angular';
 import {BindAccountPage} from "../bind-account/bind-account";
 import {EditDataPage} from "../edit-data/edit-data";
+import {HttpService} from "../../providers/http-service";
 
 @Component({
   selector: 'page-setting',
@@ -14,7 +15,8 @@ export class SettingPage {
   constructor(
     public navCtrl: NavController,
     public params: NavParams,
-    public alertCtrl: AlertController
+    public alertCtrl: AlertController,
+    public httpService: HttpService
   ) {
     this.item = params.data.item;
     this.settings = [
@@ -24,7 +26,7 @@ export class SettingPage {
       {"title": "清除缓存", "icon": "icon-cache", "isToggle": true},
       {"title": "推送通知", "icon": "icon-push", "isToggle": true},
       {"title": "收藏时转发", "icon": "icon-share", "isToggle": false},
-    ];
+    ]
   }
 
   setting(item){
@@ -78,7 +80,6 @@ export class SettingPage {
     });
     alert.present();
   }
-
 
   ionViewDidLoad() {
     console.log('Hello SettingPage Page', this.item);

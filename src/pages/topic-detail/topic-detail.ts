@@ -1,31 +1,47 @@
-import { Component, OnInit } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { Component } from '@angular/core';
+import {NavController, NavParams, ToastController} from 'ionic-angular';
 import { Http } from '@angular/http';
-import { SocialSharing } from 'ionic-native';  
-import { ApiService } from '../../providers/api-service';
+// import { SocialSharing } from 'ionic-native';
+import {HttpService} from "../../providers/http-service";
 
 @Component({
   selector: 'page-topic-detail',
   templateUrl: 'topic-detail.html'
 })
-export class TopicDetailPage implements OnInit {
+export class TopicDetailPage {
   public person: any;
   public topic: any;
-
-  constructor(public navCtrl: NavController, public params: NavParams, public apiService: ApiService, public http: Http) {
+  public collectType: number;
+  constructor(
+    public navCtrl: NavController,
+    public toastCtrl: ToastController,
+    public params: NavParams,
+    public httpService: HttpService,
+    public http: Http) {
     this.person = params.data.person;
+    // console.log(this.person);
   }
-  share(message, subject?, file?, url?) {  
-  SocialSharing.share(message, subject, file, url).then(() => {  
-    // Success!  
-    console.log("success!");
-  }, (err) => {  
-    // Error!  
-    console.log("fail"); 
-  });  
-}  
+  collect(obj) {
+    if (!obj) {
+      return;
+    }
+    // console.log("collect", this.person);
+    return this.httpService.collectTopic(obj)
+      .then(res => {
+        // console.log(res);
+        this.collectType = res.type;
+        let toast = this.toastCtrl.create({
+          message: '收藏成功',
+          duration: 1500,
+          position: 'middle'
+        });
+        toast.present();
+      })
+  }
 
-  ngOnInit() {
-    console.log("TopicDetailPage")
+
+  ionViewDidLoad() {
+    console.log('Hello TopicDetailPage');
   }
+
 }

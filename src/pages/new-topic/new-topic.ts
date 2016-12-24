@@ -15,7 +15,8 @@ export class NewTopicPage {
   constructor(public navCtrl: NavController,
               public toastCtrl: ToastController,
               public http: Http,
-              public httpService: HttpService) {
+              public httpService: HttpService)
+  {
     this.tabs = [
       {"title": "全部", "tab": "all"},
       {"title": "分享", "tab": "share"},
@@ -27,7 +28,6 @@ export class NewTopicPage {
   }
 
   addNewTopic(topic): void {
-    console.log(topic);
     if (!topic) {
       return;
     }
@@ -48,7 +48,7 @@ export class NewTopicPage {
   }
 
   ionViewDidLoad() {
-    console.log('Hello NewTopicPage Page');
+    console.log('Hello NewTopicPage');
   }
 
 }

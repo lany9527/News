@@ -11,6 +11,8 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class HttpService {
   private topicsUrl = 'http://ionichina.com/api/v1/topics';
+  private collectUrl = 'http://ionichina.com/api/v1/topic/collect';
+  private messagesUrl = 'http://ionichina.com/api/v1/messages';
   private headers = new Headers({'Content-Type': 'application/json'});
   constructor(public http: Http) {
     console.log('Hello HttpService Provider');
@@ -36,6 +38,24 @@ export class HttpService {
       .then(()=>null)
       .catch(this.handleError)
   }
+  // 收藏话题
+  collectTopic(id): Promise<any> {
+    return this.http.post(this.collectUrl, JSON.stringify(id), {headers: this.headers})
+      .toPromise()
+      .catch(this.handleError)
+  }
+  // 取消收藏
+  // 获取未读消息
+  // 获取已读和未读消息
+  getmessages(accesstoken): Promise<any> {
+    return this.http.get(this.messagesUrl+'/?accesstoken='+accesstoken)
+      .toPromise()
+      .then(response => response.json().data as Array<any>)
+      .catch(this.handleError);
+  }
+  // 标记全部已读
+  // 新建评论
+  // 点赞评论
 
   // 错误处理函数
   private handleError(error: any): Promise<any>{
